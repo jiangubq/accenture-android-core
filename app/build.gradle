@@ -8,7 +8,7 @@ def siteUrl = 'https://github.com/jiangubq/accenture-android-core'   // 项目�
 def gitUrl = 'https://github.com/jiangubq/accenture-android-core.git'   // Git仓库的url
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
-version = "1.0.0" //发布版本号
+version = "1.0.3" //发布版本号
 group = "com.accneture" //最终引用形式，如compile 'com.piano.demolib:1.0.0'，其中demolib在后面配置
 
 //↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
@@ -55,17 +55,17 @@ bintray {
     key = properties.getProperty("bintray.apikey")
     pkg {
         repo = 'acc-core-lib'//自己创建的仓库名字
-        name = 'core'//上传到JCenter的名字,最终引用的名字 compile 'com.piano.demolib:1.0.0'
+        name = 'app'//上传到JCenter的名字,最终引用的名字 compile 'com.piano.demolib:1.0.0'
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ['Apache-2.0']//不能随便写，只能是仓库创建时选择的license type
-        userOrg = 'acc' //自己创建的organization名称，一定要全是小写字母，即使当时创建的名称含有大写，这里全部转换为小写，否则404
+        userOrg = 'jiangubq' //自己创建的organization名称，一定要全是小写字母，即使当时创建的名称含有大写，这里全部转换为小写，否则404
         publish = true // 是否是公开项目，公开别人可以引用
         version {
-            name = '1.0.0'
+            name = '1.0.3'
             desc = '一个小小的demo'//描述，自己定义
             released  = new Date()
-            vcsTag = 'v1.0.0'
+            vcsTag = 'v1.0.3'
             attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
         }
     }
@@ -80,7 +80,7 @@ install {
             project {
                 packaging 'aar'
                 // Add your description here
-                name 'core'
+                name 'app'
                 description '小小的demo'
                 url siteUrl
                 // Set your license
